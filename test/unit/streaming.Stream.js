@@ -53,19 +53,21 @@ describe('Stream', function () {
 
     describe('Well initialized', function () {
         beforeEach(function () {
-            stream = Stream(context).create({errHandler: errHandlerMock,
-                                             manifestModel: manifestModelMock,
-                                             adapter: adapterMock,
-                                             abrController: abrControllerMock,
-                                             manifestUpdater: manifestUpdaterMock,
-                                             playbackController: playbackControllerMock,
-                                             capabilities: capabilitiesMock,
-                                             mediaController: mediaControllerMock,
-                                             timelineConverter: timelineConverter,
-                                             dashMetrics: dashMetricsMock,
-                                             textController: textControllerMock,
-                                             videoModel: videoModelMock,
-                                             settings: settings});
+            stream = Stream(context).create({
+                errHandler: errHandlerMock,
+                manifestModel: manifestModelMock,
+                adapter: adapterMock,
+                abrController: abrControllerMock,
+                manifestUpdater: manifestUpdaterMock,
+                playbackController: playbackControllerMock,
+                capabilities: capabilitiesMock,
+                mediaController: mediaControllerMock,
+                timelineConverter: timelineConverter,
+                dashMetrics: dashMetricsMock,
+                textController: textControllerMock,
+                videoModel: videoModelMock,
+                settings: settings
+            });
         });
 
         afterEach(function () {
@@ -159,45 +161,45 @@ describe('Stream', function () {
         });
 
         it('License expired behavior', function () {
-            stream.initialize(null,{});
+            stream.initialize(null, {});
 
-            eventBus.trigger(Events.KEY_STATUSES_CHANGED, {data: null, error: new DashJSError(ProtectionErrors.KEY_STATUS_CHANGED_EXPIRED_ERROR_CODE, ProtectionErrors.KEY_STATUS_CHANGED_EXPIRED_ERROR_MESSAGE)});
+            eventBus.trigger(Events.KEY_STATUSES_CHANGED, { data: null, error: new DashJSError(ProtectionErrors.KEY_STATUS_CHANGED_EXPIRED_ERROR_CODE, ProtectionErrors.KEY_STATUS_CHANGED_EXPIRED_ERROR_MESSAGE) });
 
             expect(errHandlerMock.errorCode).to.be.equal(ProtectionErrors.KEY_STATUS_CHANGED_EXPIRED_ERROR_CODE); // jshint ignore:line
             expect(errHandlerMock.errorValue).to.be.equal(ProtectionErrors.KEY_STATUS_CHANGED_EXPIRED_ERROR_MESSAGE); // jshint ignore:line
         });
 
         it('No Licenser server url defined behavior', function () {
-            stream.initialize(null,{});
+            stream.initialize(null, {});
 
-            eventBus.trigger(Events.LICENSE_REQUEST_COMPLETE, {data: null, error: new DashJSError(ProtectionErrors.MEDIA_KEY_MESSAGE_NO_LICENSE_SERVER_URL_ERROR_CODE, ProtectionErrors.MEDIA_KEY_MESSAGE_NO_LICENSE_SERVER_URL_ERROR_MESSAGE)});
+            eventBus.trigger(Events.LICENSE_REQUEST_COMPLETE, { data: null, error: new DashJSError(ProtectionErrors.MEDIA_KEY_MESSAGE_NO_LICENSE_SERVER_URL_ERROR_CODE, ProtectionErrors.MEDIA_KEY_MESSAGE_NO_LICENSE_SERVER_URL_ERROR_MESSAGE) });
 
             expect(errHandlerMock.errorCode).to.be.equal(ProtectionErrors.MEDIA_KEY_MESSAGE_NO_LICENSE_SERVER_URL_ERROR_CODE); // jshint ignore:line
             expect(errHandlerMock.errorValue).to.be.equal(ProtectionErrors.MEDIA_KEY_MESSAGE_NO_LICENSE_SERVER_URL_ERROR_MESSAGE); // jshint ignore:line
         });
 
         it('Licenser request error behavior', function () {
-            stream.initialize(null,{});
+            stream.initialize(null, {});
 
-            eventBus.trigger(Events.LICENSE_REQUEST_COMPLETE, {data: null, error: new DashJSError(ProtectionErrors.MEDIA_KEY_MESSAGE_LICENSER_ERROR_CODE, ProtectionErrors.MEDIA_KEY_MESSAGE_LICENSER_ERROR_MESSAGE)});
+            eventBus.trigger(Events.LICENSE_REQUEST_COMPLETE, { data: null, error: new DashJSError(ProtectionErrors.MEDIA_KEY_MESSAGE_LICENSER_ERROR_CODE, ProtectionErrors.MEDIA_KEY_MESSAGE_LICENSER_ERROR_MESSAGE) });
 
             expect(errHandlerMock.errorCode).to.be.equal(ProtectionErrors.MEDIA_KEY_MESSAGE_LICENSER_ERROR_CODE); // jshint ignore:line
             expect(errHandlerMock.errorValue).to.be.equal(ProtectionErrors.MEDIA_KEY_MESSAGE_LICENSER_ERROR_MESSAGE); // jshint ignore:line
         });
 
         it('CDM Access denied behavior', function () {
-            stream.initialize(null,{});
+            stream.initialize(null, {});
 
-            eventBus.trigger(Events.KEY_SYSTEM_SELECTED, {data: null, error: new DashJSError(ProtectionErrors.KEY_SYSTEM_ACCESS_DENIED_ERROR_CODE, ProtectionErrors.KEY_SYSTEM_ACCESS_DENIED_ERROR_MESSAGE)});
+            eventBus.trigger(Events.KEY_SYSTEM_SELECTED, { data: null, error: new DashJSError(ProtectionErrors.KEY_SYSTEM_ACCESS_DENIED_ERROR_CODE, ProtectionErrors.KEY_SYSTEM_ACCESS_DENIED_ERROR_MESSAGE) });
 
             expect(errHandlerMock.errorCode).to.be.equal(ProtectionErrors.KEY_SYSTEM_ACCESS_DENIED_ERROR_CODE); // jshint ignore:line
             expect(errHandlerMock.errorValue).to.be.equal(ProtectionErrors.KEY_SYSTEM_ACCESS_DENIED_ERROR_MESSAGE); // jshint ignore:line
         });
 
         it('Unable to create key session behavior', function () {
-            stream.initialize(null,{});
+            stream.initialize(null, {});
 
-            eventBus.trigger(Events.KEY_SESSION_CREATED, {data: null, error: new DashJSError(ProtectionErrors.KEY_SESSION_CREATED_ERROR_CODE, ProtectionErrors.KEY_SESSION_CREATED_ERROR_MESSAGE)});
+            eventBus.trigger(Events.KEY_SESSION_CREATED, { data: null, error: new DashJSError(ProtectionErrors.KEY_SESSION_CREATED_ERROR_CODE, ProtectionErrors.KEY_SESSION_CREATED_ERROR_MESSAGE) });
 
             expect(errHandlerMock.errorCode).to.be.equal(ProtectionErrors.KEY_SESSION_CREATED_ERROR_CODE); // jshint ignore:line
             expect(errHandlerMock.errorValue).to.be.equal(ProtectionErrors.KEY_SESSION_CREATED_ERROR_MESSAGE); // jshint ignore:line
