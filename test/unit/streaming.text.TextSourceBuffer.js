@@ -19,9 +19,9 @@ describe('TextSourceBuffer', function () {
 
     let textSourceBuffer = TextSourceBuffer(context).getInstance();
     textSourceBuffer.setConfig({streamController: streamControllerMock,
-                                adapter: adapterMock,
-                                errHandler: errorHandlerMock,
-                                ttmlParser: ttmlParser});
+        adapter: adapterMock,
+        errHandler: errorHandlerMock,
+        ttmlParser: ttmlParser});
 
     it('call to addEmbeddedTrack function with no mediaInfo parameter should not throw an error', function () {
         expect(textSourceBuffer.addEmbeddedTrack.bind(textSourceBuffer)).to.not.throw();

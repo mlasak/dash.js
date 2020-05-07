@@ -111,8 +111,8 @@ function MssParser(config) {
     function mapAdaptationSet(streamIndex, timescale) {
         const adaptationSet = {};
         const representations = [];
-        let segmentTemplate;
-        let qualityLevels,
+        let segmentTemplate,
+            qualityLevels,
             representation,
             segments,
             i;

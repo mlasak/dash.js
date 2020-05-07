@@ -91,8 +91,8 @@ function NextFragmentRequestRule(config) {
             // Use time just whenever is strictly needed
             request = streamProcessor.getFragmentRequest(representationInfo,
                 hasSeekTarget || bufferIsDivided ? time : undefined, {
-                keepIdx: !hasSeekTarget && !bufferIsDivided
-            });
+                    keepIdx: !hasSeekTarget && !bufferIsDivided
+                });
 
             // Then, check if this request was downloaded or not
             while (request && request.action !== FragmentRequest.ACTION_COMPLETE && streamProcessor.getFragmentModel().isFragmentLoaded(request)) {

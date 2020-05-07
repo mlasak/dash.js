@@ -71,13 +71,13 @@ describe('StreamProcessor', function () {
 
     it('when a BUFFER_LEVEL_UPDATED event occurs, should update dvr info metrics', function () {
         const streamProcessor = StreamProcessor(context).create({type: testType,
-                                                                dashMetrics: dashMetricsMock,
-                                                                manifestModel: manifestModelMock,
-                                                                playbackController: playbackControllerMock,
-                                                                timelineConverter: timelineConverterMock,
-                                                                abrController: abrControllerMock,
-                                                                adapter: adapterMock,
-                                                                stream: streamMock});
+            dashMetrics: dashMetricsMock,
+            manifestModel: manifestModelMock,
+            playbackController: playbackControllerMock,
+            timelineConverter: timelineConverterMock,
+            abrController: abrControllerMock,
+            adapter: adapterMock,
+            stream: streamMock});
 
         streamProcessor.initialize();
 

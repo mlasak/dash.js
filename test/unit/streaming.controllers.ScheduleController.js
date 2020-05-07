@@ -23,15 +23,15 @@ const testType = 'video';
 
 describe('ScheduleController', function () {
 
-    let scheduleController;
-    let mediaPlayerModelMock;
-    let streamProcessorMock;
-    let adapterMock;
-    let playbackControllerMock;
-    let abrControllerMock;
-    let streamControllerMock;
-    let dashMetricsMock;
-    let metricsModelMock;
+    let scheduleController,
+        mediaPlayerModelMock,
+        streamProcessorMock,
+        adapterMock,
+        playbackControllerMock,
+        abrControllerMock,
+        streamControllerMock,
+        dashMetricsMock,
+        metricsModelMock;
     const settings = Settings(context).getInstance();
 
     beforeEach(function () {

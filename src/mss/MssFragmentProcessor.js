@@ -141,13 +141,13 @@ function MssFragmentProcessor(config) {
             constants: config.constants, ISOBoxer: ISOBoxer});
 
         mssFragmentMoofProcessor = MSSFragmentMoofProcessor(context).create({
-                dashMetrics: dashMetrics,
-                playbackController: playbackController,
-                ISOBoxer: ISOBoxer,
-                eventBus: eventBus,
-                debug: debug,
-                errHandler: config.errHandler
-            });
+            dashMetrics: dashMetrics,
+            playbackController: playbackController,
+            ISOBoxer: ISOBoxer,
+            eventBus: eventBus,
+            debug: debug,
+            errHandler: config.errHandler
+        });
     }
 
     function generateMoov(rep) {

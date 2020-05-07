@@ -19,8 +19,8 @@ describe('TextController', function () {
 
     let videoModelMock = new VideoModelMock();
     let streamControllerMock = new StreamControllerMock();
-    let textTracks;
-    let textController;
+    let textTracks,
+        textController;
 
     beforeEach(function () {
         if (typeof document === 'undefined') {
@@ -199,8 +199,8 @@ describe('TextController', function () {
     });
 
     describe('Handle event TEXT_TRACKS_QUEUE_INITIALIZED', function () {
-        var textTracksQueue;
-        var initialIndex;
+        var textTracksQueue,
+            initialIndex;
 
         beforeEach(function () {
             textTracksQueue = [];
